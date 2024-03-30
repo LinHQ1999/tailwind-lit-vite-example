@@ -1,13 +1,18 @@
+import {LitElement, html} from "lit";
 import {customElement, property} from "lit/decorators.js";
-import {MyTWElement} from "./my-element";
-import {html} from "lit";
+import {MyTWElement, adstyle} from "./my-element";
 
 @customElement('hello-world')
-export class Hello extends MyTWElement {
+export class Hello extends LitElement {
     @property()
     title = 'Hello, world!'
 
+    static styles = [adstyle]
+
     render() {
-        return html`<p class="text-4xl font-bold text-yellow-200">${this.title}</p>`
+        return html`
+<h1 class="text-sm text-red-500 hover:text-blue-200 hover:cursor-pointer"><slot/></h1>
+<p class="text-center text-4xl font-bold text-yellow-200">${this.title}</p>
+`
     }
 }

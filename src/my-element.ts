@@ -18,6 +18,11 @@ export class MyTWElement extends LitElement {
     }`, unsafeCSS(style)]
 }
 
+const adstyle = new CSSStyleSheet()
+adstyle.replaceSync(style)
+
+export {adstyle}
+
 declare global {
     interface HTMLElementTagNameMap {
         'my-element': MyTWElement
